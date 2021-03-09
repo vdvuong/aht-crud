@@ -1,0 +1,24 @@
+<?php
+
+/** @var \AHT\Crud\Block\Template $block */
+?>
+
+<div class="template">
+    <div class="container">
+        <form method='POST' action="/crud/index/save">
+            <div class="form-group">
+                <input type="hidden" name="id" value="<?php echo $block->getCrud('id');  ?>">
+                <label for="title"><b>Title</b></label>
+                <input type="text" class="form-control" id="title" placeholder="Title" name="title" value="<?php echo $block->getCrud('title');  ?>">
+            </div>
+            <br>
+            <div class=" form-group">
+                <label for="detail"><b>Detail</b></label>
+                <input type="text" class="form-control" id="detail" placeholder="Detail" name="detail" value="<?php echo $block->getCrud('detail'); ?>">
+            </div>
+            <br>
+            <button type=" submit" class="btn btn-primary" name="btn_edit">Submit</button>
+        </form>
+    </div>
+
+</div>

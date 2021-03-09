@@ -1,0 +1,43 @@
+<?php
+
+/** @var \AHT\Crud\Block\Template $block */
+?>
+
+<div class="template">
+    <style>
+        td,
+        th {
+            border: 1px solid #ddd;
+            text-align: left;
+            padding: 8px;
+        }
+    </style>
+
+    <a style="margin-bottom: 10px;" href="<?php echo $block->getBaseUrl(); ?>crud/index/insert" class="action primary">Create Crud</a>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Detail</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        <?php
+        $collection = $block->getAll();
+        foreach ($collection as $item) :
+        ?>
+            <tr>
+                <td><?php echo $item->getData('id'); ?></td>
+                <td><?php echo $item->getData('title'); ?></td>
+                <td><?php echo $item->getData('detail'); ?></td>
+                <td>
+                    <a href="<?php echo $block->getBaseUrl(); ?>crud/index/edit/id/<?php echo $item->getId(); ?>" class="action primary">Edit</a>
+                </td>
+                <td>
+                    <a href="<?php echo $block->getBaseUrl(); ?>crud/index/delete/?id=<?php echo $item->getId(); ?>" class="action primary">Delete</a>
+                </td>
+            </tr>
+        <?php endforeach; ?>
+    </table>
+
+</div>
